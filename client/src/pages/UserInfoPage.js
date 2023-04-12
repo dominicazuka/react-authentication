@@ -8,8 +8,8 @@ export const UserInfoPage = () => {
 
     // These states are bound to the values of the text inputs
     // on the page (see JSX below). 
-    const [favoriteFood, setFavoriteFood] = useState('');
-    const [hairColor, setHairColor] = useState('');
+    const [favoriteCity, setFavoriteCity] = useState('');
+    const [profession, setProfession] = useState('');
     const [bio, setBio] = useState('');
 
     // These state variables control whether or not we show
@@ -52,20 +52,20 @@ export const UserInfoPage = () => {
     // And here we have the JSX for our component. It's pretty straightforward
     return (
         <div className="content-container">
-            <h1>Info for ______</h1>
+            <h1>Info for {".........."}</h1>
             {showSuccessMessage && <div className="success">Successfully saved user data!</div>}
             {showErrorMessage && <div className="fail">Uh oh... something went wrong and we couldn't save changes</div>}
             <label>
-                Favorite Cuisine:
+                Favorite City:
                 <input
-                    onChange={e => setFavoriteFood(e.target.value)}
-                    value={favoriteFood} />
+                    onChange={e => setFavoriteCity(e.target.value)}
+                    value={favoriteCity} />
             </label>
             <label>
-                Hair Color:
+                Profession:
                 <input
-                    onChange={e => setHairColor(e.target.value)}
-                    value={hairColor} />
+                    onChange={e => setProfession(e.target.value)}
+                    value={profession} />
             </label>
             <label>
                 Bio:
