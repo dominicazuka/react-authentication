@@ -9,7 +9,7 @@ export const initializeDbConnection = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
-    console.log('Database Connection Successfully Created...')
+    console.log('Database Connection Successfully Initiated...')
   } catch (error) {
     console.log(error.message) 
   }
