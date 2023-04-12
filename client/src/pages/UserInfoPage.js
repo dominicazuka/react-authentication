@@ -56,7 +56,7 @@ export const UserInfoPage = () => {
             {showSuccessMessage && <div className="success">Successfully saved user data!</div>}
             {showErrorMessage && <div className="fail">Uh oh... something went wrong and we couldn't save changes</div>}
             <label>
-                Favorite Food:
+                Favorite Cuisine:
                 <input
                     onChange={e => setFavoriteFood(e.target.value)}
                     value={favoriteFood} />
