@@ -8,7 +8,6 @@ export const verifyEmailRoute = {
   method: "put", 
   handler: async (req, res) => {
     const { email, verificationString } = req.body;
-    console.log("req.body verifyEMailRoute", req.body)
     new CognitoUser({ Username: email, Pool: awsUserPool }).confirmRegistration(
       verificationString,
       true,

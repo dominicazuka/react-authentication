@@ -7,11 +7,7 @@ export const logInRoute = {
   method: "post",
   handler: async (req, res) => {
     const { email, password: userPassword } = req.body;
-    // console.log("req.body login route", req.body)
-
     const user = await User.findOne({ email });
-
-    // console.log("user login request",user)
 
     if (!user) {
       return res.status(401).json({ message: "Unathorised!" });

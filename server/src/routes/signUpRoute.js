@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 const User = require("../models/user");
 import { CognitoUserAttribute } from "amazon-cognito-identity-js";
-import  {awsUserPool} from "../util/awsUserPool"
-import {v4 as uuid} from "uuid";
+import { awsUserPool } from "../util/awsUserPool";
+import { v4 as uuid } from "uuid";
 import bcrypt from "bcrypt";
 
 export const signUpRoute = {
@@ -17,8 +17,8 @@ export const signUpRoute = {
         Value: email,
       }),
     ];
- 
-    awsUserPool.signUp( 
+
+    awsUserPool.signUp(
       email,
       password,
       attributes,
@@ -26,22 +26,22 @@ export const signUpRoute = {
       async (err, awsResult) => {
         console.log("awsResult >>>", awsResult);
         if (err) {
-          console.log("error", err); 
+          console.log("error", err);
           return res.status(400).json({
             message: "Unable to sign up. Please try again",
           });
         }
-        const startingInfo = { 
-          favouriteCity: "", 
+        const startingInfo = {
+          favouriteCity: "",
           profession: "",
           bio: "",
         };
-    const passwordHash = await bcrypt.hash(password, 10);
-        const result = await User.create({ 
+        const passwordHash = await bcrypt.hash(password, 10);
+        const result = await User.create({
           email: email,
           info: startingInfo,
-          verificationString: uuid(),  
-          password: passwordHash
+          verificationString: uuid(),
+          password: passwordHash,
         });
         const { insertedId } = result;
         jwt.sign(
