@@ -41,7 +41,6 @@ export const signUpRoute = {
           verificationString: uuid(),
           password: password
         });
-        console.log("result >>>", result);
         const { insertedId } = result;
         jwt.sign(
           {
