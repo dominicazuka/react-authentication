@@ -3,6 +3,7 @@ const User = require("../models/user");
 import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 import  {awsUserPool} from "../util/awsUserPool"
 import {v4 as uuid} from "uuid";
+import bcrypt from "bcrypt";
 
 export const signUpRoute = {
   path: "/api/signup",
@@ -17,7 +18,7 @@ export const signUpRoute = {
       }),
     ];
  
-    awsUserPool.signUp(
+    awsUserPool.signUp( 
       email,
       password,
       attributes,
@@ -35,11 +36,12 @@ export const signUpRoute = {
           profession: "",
           bio: "",
         };
+    const passwordHash = await bcrypt.hash(password, 10);
         const result = await User.create({ 
           email: email,
           info: startingInfo,
-          verificationString: uuid(),
-          password: password
+          verificationString: uuid(),  
+          password: passwordHash
         });
         const { insertedId } = result;
         jwt.sign(
