@@ -6,9 +6,9 @@ import("node-fetch")
     global.fetch = fetch;
   })  
   .catch((err) => {
-    console.log("Failed to fetch node-fetch", err);
     // handle any errors here
-  });
+    console.log("Failed to fetch node-fetch", err);
+  }); 
 
 AWS.config.region = process.env.AWS_REGION;
 AWS.config.credentials = new CognitoIdentityCredentials({

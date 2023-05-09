@@ -27,7 +27,7 @@
     "mjml-utils": "^2.2.1",
     "mongodb": "3.6.5",
     "mongoose": "^7.0.3",
-    "node-fetch": "^3.3.1",
+    "node-fetch": "^2.6.10",
     "nodemailer": "^6.9.1",
     "uuid": "^9.0.0"
   },
