@@ -7,7 +7,7 @@ export const EmailVerificationSuccess = () => {
     // and send them to the "login page"
     localStorage.removeItem('token');
     history.push('/login');
-}
+} 
 
   return (
     <div className="content-container">

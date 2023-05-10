@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios'
 import {EmailVerificationSuccess} from './EmailVerificationSuccess'
-import {EmailVerificationFail} from './EmailVerificationFail'
+import {EmailVerificationFail} from './EmailVerificationFail' 
 import {useToken} from '../lib/auth/useToken'
 import {useQueryParams} from '../util/useQueryParams'
 

@@ -9,7 +9,7 @@ export const PleaseVerifyEmailPage = () =>{
     useEffect(() => {
       setTimeout(()=>{
         history.push(`/verify-email?email=${encodeURIComponent(email)}`)
-      }, 3000)
+      }, 3000) 
     }, [history, email])
     
 
