@@ -8,13 +8,13 @@ import {useQueryParams} from '../util/useQueryParams'
 export  const EmailVerificationCodePage = () => {
     const [isSuccess, setIsSuccess] = useState(false)
     const [isFailure, setIsFailure] = useState(false)
-    const [verificationString, setVerificationString] = useState('')
+    const [verificationString, setVerificationString] = useState('') 
     const {email} = useQueryParams()
     const [, setToken] = useToken()
 
     const onSubmitVerificationString = async () => {
         try{
-            const response = await axios.put('/api/verify-email', {email, verificationString})
+            const response = await axios.put('/api/verify-email', {email, verificationString}) 
             console.log("response: " + response.data)
             const {token} = response.data
             setToken(token)

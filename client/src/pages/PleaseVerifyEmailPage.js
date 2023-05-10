@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
-import { useQueryParams } from '../util/useQueryParams';
+import { useQueryParams } from '../util/useQueryParams'; 
 
 export const PleaseVerifyEmailPage = () =>{
     const history = useHistory();
