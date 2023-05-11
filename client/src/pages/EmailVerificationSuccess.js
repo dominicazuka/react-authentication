@@ -5,7 +5,7 @@ export const EmailVerificationSuccess = () => {
   const logOut = () => {
     // We'll want to log the user out here
     // and send them to the "login page"
-    localStorage.removeItem('token');
+    localStorage.removeItem('token'); 
     history.push('/login');
 } 
 
