@@ -9,6 +9,7 @@ export const PasswordVerificationCodePage = () => {
   const [passwordValue, setPasswordValue] = useState("");
   const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
   const [verificationString, setVerificationString] = useState("");
+  const [oldPasswordValue, setOldPasswordValue] = useState("");
   const urlParams = new URLSearchParams(window.location.search); 
   const email = urlParams.get("email");
 
@@ -16,6 +17,7 @@ export const PasswordVerificationCodePage = () => {
     try {
       const response = await axios.put(`/api/reset-password`, {
         email,
+        oldPassword: oldPasswordValue,
         newPassword: passwordValue,
         verificationString,
       });
@@ -42,6 +44,13 @@ export const PasswordVerificationCodePage = () => {
         placeholder="e.g 123456"
         value={verificationString}
         onChange={(e) => setVerificationString(e.target.value)}
+      />
+      <p>Please enter your old password</p>
+      <input
+        type="password"
+        value={oldPasswordValue}
+        onChange={(e) => setOldPasswordValue(e.target.value)}
+        placeholder="Old Password"
       />
       <p>Please enter a new password</p>
       <input

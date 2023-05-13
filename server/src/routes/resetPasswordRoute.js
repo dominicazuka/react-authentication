@@ -8,10 +8,10 @@ export const resetPasswordRoute = {
   path: "/api/reset-password",
   method: "put",
   handler: async (req, res) => {
-    const { email, verificationString, newPassword } = req.body;
+    const { email, verificationString, oldPassword, newPassword } = req.body;
     const user = await User.findOne({ email });
     console.log("user", user);
-    console.log("values", { email, verificationString, newPassword });
+    console.log("values", { email, verificationString, oldPassword, newPassword });
     const newPasswordHash = bcrypt.hash(newPassword, 10);
     new CognitoUser({ Username: email, Pool: awsUserPool }).authenticateUser(
       new AuthenticationDetails({ Username: email, Password: password }),
