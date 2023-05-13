@@ -5,7 +5,7 @@ import {EmailVerificationFail} from './EmailVerificationFail'
 import {useToken} from '../lib/auth/useToken' 
 import {useQueryParams} from '../util/useQueryParams'
 
-export  const EmailVerificationCodePage = () => {
+export  const EmailVerificationCodePage = () => { 
     const [isSuccess, setIsSuccess] = useState(false)
     const [isFailure, setIsFailure] = useState(false)
     const [verificationString, setVerificationString] = useState('') 
@@ -30,7 +30,7 @@ export  const EmailVerificationCodePage = () => {
     return(
         <div className='content-container'>
             <h1>Please Verify Your Email</h1>
-            <p>You should have recieved a verification code at the email address you provided, please ebter it here</p>
+            <p>You should have recieved a verification code at the email address you provided, please enter it here</p>
             <input
             placeholder='e.g 123456'
             value={verificationString}
